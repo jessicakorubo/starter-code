@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="header.js"></script>
+  <title>Frontend Mentor | Space tourism website</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"
+    integrity="sha512-E1dSFxg+wsfJ4HKjutk/WaCzK7S2wv1POn1RRPGh8ZK+ag9l244Vqxji3r6wgz9YBf6+vhQEYJZpSjqWFPg9gg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <style>
+    body {
+      background-image: url('assets/technology/background-technology-desktop.jpg');
+      color: white;
+      /* background-repeat: no-repeat; */
+    }
+  </style>
+</head>
+
+<body>
+
+  <div>
+    <div class="navbar">
+      <div class="icon">
+        <img src="assets/shared/logo.svg" alt="">
+      </div>
+      <div class="nav">
+        <div class="hr">
+          <hr>
+        </div>
+        <div class="nav-right">
+          <ol>
+            <li><a href="index.html"> <span>00 </span> Home</a></li>
+            <li><a href="destination-moon.html"><span>01 </span> Destination</a></li>
+            <li><a href="crew-specialist.html"><span>02</span> Crew</a></li>
+            <li><a class="active" href="technology-vehicle.html"><span>03</span> Technology</a></li>
+          </ol>
+        </div>
+        <div class="hamburger">
+          <img src="assets/icons8-hamburger-menu-48.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mobile-nav">
+    <div class="close">
+      <img src="assets/icons8-close-button-32.png" alt="">
+    </div>
+    <ul>
+      <li> <a href="index.html">00 HOME</a></li>
+      <li> <a href="destination-moon.html">01 DESTINATION</a></li>
+      <li> <a href="crew-commander.html">02 CREW</a></li>
+      <li><a href="technology-vehicle.html">03 TECHNOLOGY</a></li>
+    </ul>
+  </div>
+
+
+  <div id="app">
+    <!-- THE RENDERED TEMPLATE WILL BE INSNERTED HERE !! -->
+  </div>
+
+  <script id="template" type="text/x-handlebars-template">
+
+    <div class="technology">
+      <h3 class="title"> <span>03</span> &NonBreakingSpace; SPACE LAUNCH 101</h3>
+    
+      <div class="technology-content">
+       
+        <div class="technology-text-content">
+
+          <div class="technology-navigation">
+            <a href="technology-vehicle.html">1</a>
+            <a  href="technology-spaceport.html">2</a>
+            <a class="active" href="technology-capsule.html">3</a>
+          </div>
+
+          <div class="technology-text">
+            <h3>{{technologyTitle}}</h3>
+            <h1>{{technologyName}}</h1>
+            <p>{{technologyText}}</p>
+          
+          </div>
+        </div>
+        <div class="technology-image-content">
+          <div class="destination-nav">
+            <div id="destination-line" class="technology-image">
+              <img src="{{imagetechnologySource}}" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </script>
+
+
+
+  <script>
+    const pageData = {
+      imagetechnologySource: 'assets/technology/image-space-capsule-portrait.jpg',
+      technologyTitle: 'THE TERMONOLOGY...',
+      technologyName: 'SPACE CAPSULE',
+      technologyText: 'A space capsule is an often-crewed spacecraft that uses a blunt-body reentry capsule to reenter the Earth\'s atmosphere without wings. Our capsule is where you\'ll spend your time during the flight.It includes a space gym, cinema, and plenty of other activities to keep you entertained.'
+
+    };
+
+    const templateSource = document.getElementById('template').innerHTML;
+
+    //COMPILE THA HADNDLE BARS TEMPLATE
+
+    const compiledTemplate = Handlebars.compile(templateSource);
+
+    // RENDER THE TEMPLATE WITH DYNAMIC DATA
+
+    const renderedPage = compiledTemplate(pageData);
+
+    document.getElementById('app').innerHTML = renderedPage;
+
+  </script>
+
+
+<script src="index.js"></script>
+</body>
+
+</html>;

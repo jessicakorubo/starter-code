@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"
+    integrity="sha512-E1dSFxg+wsfJ4HKjutk/WaCzK7S2wv1POn1RRPGh8ZK+ag9l244Vqxji3r6wgz9YBf6+vhQEYJZpSjqWFPg9gg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <title>Frontend Mentor | Space tourism website</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="header.js"></script>
+
+  <style>
+    body {
+      background-image: url(assets/destination/background-destination-desktop.jpg);
+      color: white;
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <header-tag></header-tag>
+  <div class="destination">
+
+    <h3 class="title">01 PICK YOUR DESTINATION</h3>
+
+    <div class="destination-content">
+      <div class="destination-pic">
+        <img src="assets/destination/image-moon.png" alt="">
+      </div>
+      <div class="destination-text">
+        <div>
+          <div class="destination-nav">
+            <div class="des-nav-con">
+              <a href="">MOON</a>
+              <a class="active" href="destination-mars.html">MARS</a>
+              <a href="">EUROPA</a>
+              <a href="">TITAN</a>
+            </div>
+          </div>
+
+          <div class="destination-line" id="app">
+
+
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Import Handlebars and your template
+    // import template from 'template.hbs';
+
+    const pageData = {
+      pageTitle: 'Page Title',
+      headerText: 'Header Text',
+      pageContent: 'Page-specific content goes here'
+    };
+
+
+    let xhr = new XMLHttpRequest;
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4) {
+
+        if (xhr.status == 200) {
+          const templateSource = xhr.responseText;
+          const compiledTemplate = Handlebars.compile(templateSource);
+          const renderedPage = compiledTemplate(pageData);
+          document.getElementById('app').innerHTML = renderedPage;
+        }
+        else {
+          console.error('Failed to load template. Status code:', xhr.status);
+          document.getElementById('app').innerHTML = '<p>Error loading the template. Nawaa</p>';
+
+
+        }
+      }
+    };
+
+
+    xhr.open('GET', 'template.hbs', true);
+    xhr.send();
+
+
+  </script>
+</body>
+
+</html>

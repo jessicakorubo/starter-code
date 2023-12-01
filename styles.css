@@ -1,0 +1,552 @@
+@font-face {
+    font-family: 'Parisienne';
+    src: url('Parisienne/Parisienne-Regular.ttf');
+}
+@font-face {
+    font-family: 'DM-SANS';
+    src: url('DMSans/DMSans-Regular.ttf');
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url('Montserrat/static/Montserrat-Regular.ttf');
+}
+@font-face {
+    font-family: 'Montserrat-medium-ita';
+    src: url('Montserrat/static/Montserrat-MediumItalic.ttf');
+}
+
+@font-face {
+    font-family: 'Sedgwick';
+    src: url('Sedgwick_Ave_Display/SedgwickAveDisplay-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Barlow';
+    src: url('Barlow/Barlow-Light.ttf');
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x:hidden;
+}
+
+.home {
+    background-image: url(assets/home/background-home-desktop.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+/* BEGINNING OF HEADER TAG */
+.navbar {
+    margin-top: 3rem;
+    margin-left: 2rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    justify-content: space-between;
+}
+.nav {
+    display: flex;
+    align-items: center;
+}
+ 
+.hr {
+    position: relative;
+    left: 2%;
+    /* top: 50%; */
+    /* display: inline-block; */
+    width: 35vw;
+    z-index: 1;
+}
+.hr hr{
+   width: 100%; 
+}
+.nav-right {
+    padding: 0 7rem;
+    display: flex;
+    backdrop-filter: blur(10px);
+    /* background-clip: padding-box; */
+    height: 80px;
+    justify-content: flex-end;
+    align-items: center;
+
+  background: rgba(255, 255,255, 0.1);
+}
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+ .nav-right ol li a span {
+        margin-right: 15px;
+    }
+ol {
+    display: flex;
+    gap: 4.5rem;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+ol li {
+    list-style-type: none;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    height: 100%;
+}
+ol li a {
+    height: 100%;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;    
+}
+
+ol li a.active {
+    border-bottom: 3px solid white;
+}
+
+.mobile-nav {
+    display: none;
+    right: 100%;
+    padding: 4rem 2rem;
+    top: 0;
+    transition: right 1s;
+    width: 60%;
+    height: 100%;
+    /* background-color: rgb(240, 138, 21); */
+    backdrop-filter: blur(20px);
+    position: fixed;
+}
+.mobile-nav .close {
+    display: flex;
+    justify-content: right;
+    margin-bottom:3rem;
+    cursor: pointer;
+}
+
+.mobile-nav ul li {
+    margin-top: 2rem;
+    list-style-type: none;
+}
+
+.mobile-nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* NAVIGATION BAR MOBILE RESPONSIVENESS */
+@media (width <=800px) {
+    .nav {
+        padding-right: 2rem;
+    }
+    .nav-right {
+        display: none;
+    }
+    .hamburger{
+        display: inline-block;
+    }
+    .mobile-nav {
+        display: block;
+    }
+}
+
+/* END OF HEADER TAG */
+.home-grid {
+    display: grid;
+    place-items: center;
+    grid-template-columns:50% 50%;
+    grid-template-rows: 1;
+    gap: 3rem;
+    margin-top: 8rem;
+
+}
+.home_text , .home_pic{
+    display: flex;
+    justify-content: center;
+    /* width: 50%; */
+    align-items: center;
+}
+.text-info {
+    width: 60%;
+    word-spacing: 5px;
+    
+}
+.pic-info {
+    border-radius: 50%;
+    background-color: white;
+    color: black;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 250px;
+    text-align: center;
+    display: flex;
+
+}
+space {
+    display: block;
+    margin: auto;
+    font-size: 50px;
+    font-family: 'Belleza', serif;
+    /* text-align: center; */
+
+}
+
+/* //smaller screen */
+
+/* TABLET: MORE OR LESS */
+/* @custom---small (width <=1000px); */
+@media (width <=1200px) {
+    .nav-right {
+        padding: 0 5rem;
+    }
+    .nav-right ol li a span {
+        display: none;
+    }
+    ol {
+        gap: 2.5rem;
+    }
+    .home {
+        background-image: url('assets/destination/background-destination-tablet.jpg');
+    }
+    .hr {
+        display: none;
+    }
+    .home-grid {
+        grid-template-columns: 100%;
+        grid-template-columns: 100%;
+        padding: 0;
+    }
+    .text-info{
+        text-align: center;
+    }
+    .home_pic {
+        margin-top: 5rem;
+    }
+}
+
+
+
+
+/* DESTINATION */
+
+.destination {
+    margin-top:  50px;
+    padding: 1rem 5rem;
+}
+.destination .title {
+    padding-left: 2rem;
+    margin-bottom: 2rem;
+}
+.destination-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* grid-template-columns: repeat(2, 1fr); */
+    gap: 3rem;
+}
+.destination-pic {
+    width: clamp(100px, 300px, calc(100%+ 100px));
+    height: 100%;
+    margin: auto;
+    /* background-color: red ; */
+}
+.destination-pic img {
+    width: 100%;
+}
+.destination-pic, .destination-text {
+    justify-content: center;
+    display: flex;
+}
+/*  */
+.des-con {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+/*  */
+.des-nav-con {
+    display: flex;
+    gap: 2rem;
+    color: white;
+}
+.des-nav-con a {
+    color: white;
+    text-decoration: none;
+    padding: 1rem 0;
+}
+.des-nav-con a.active {
+    border-bottom: 2px solid white;
+}
+.destination-line-text {
+    width: 80%;
+}
+#destination-line h1 {
+    font-size: 100px;
+    margin: 2rem 0;
+
+}
+#feature-divide {
+    margin: 2rem 0 1rem 0;
+}
+.features {
+    display: flex;
+    gap: 10%;
+}
+.features div {
+    /* width:  */
+}
+.features h3 {
+    font-family: 'Barlow';
+}
+/* DESTINATION TABLET RESPONSIVENESS */
+@media (width <=1200px) {
+
+    .destination-pic {
+        /* width: clamp(); */
+        margin: auto;
+    }
+    .destination-pic img {
+        width: 100%;
+    }
+
+    .destination-content {
+        display: flex;
+        flex-direction: column ;
+    }
+    .des-nav-con {
+        justify-content: center;
+    }
+    #destination-line {
+        text-align:center;
+    }
+    .destination-line-text {
+        text-align: center;
+        width: 100%;
+    }
+    #feature-divide {
+        width: 80%;
+        margin:  2rem auto;
+    }
+    .features {
+        justify-content: center;
+    }
+}
+
+/* CREW */
+.crew {
+    margin-top:  50px;
+    padding: 1rem 5rem;
+}
+.crew-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    margin-top: 1rem;
+}
+.crew-image-content {
+    display: flex;
+    justify-content: center;
+}
+.crew-image {
+    height: 400px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+.crew-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.crew-text {
+    /* width: 80%; */
+}
+.crew-text-content {
+    justify-content: center;
+    display: flex;
+    padding: 2rem;
+    align-items: center;
+}
+.crew h3.title {
+    padding-left: 2rem;
+}
+.crew-text h1 {
+    margin: 2rem 0;
+    font-family: 'Montserrat';
+    font-size: 40px;
+}
+
+.crew-text p {
+     /* word-spacing: 5px;
+    letter-spacing: 2px; */
+    /* line-height: 2.5rem; */
+    width: 80%;
+    font-family:'Montserrat-medium-ita';
+}
+
+/* CREW NAV */
+.crew-nav  {
+    margin-top: 2.5rem;
+    display: flex;
+    gap:1rem;
+}
+.crew-nav a {
+    /* display: inline-block;  */
+    border-radius: 50%;
+    width: 15px; 
+    height: 15px; 
+    background-color: white; 
+    text-align: center; 
+     opacity: 0.2;
+
+    /* line-height: 30px;  */
+    /* color: #ffffff;  */
+    text-decoration: none;
+}
+.crew-nav a.active {
+   opacity: 1;
+}
+
+/* CREW TABLET RESPONSIVENESS */
+@media (width <=1200px) {
+    .crew-content {
+    display: flex;
+    flex-direction: column;
+    }
+
+    .crew-text > *{
+        text-align: center;
+    }
+
+    .crew-text p {
+        width: 100%;
+    }
+    
+    .crew-nav{
+        text-align: center;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+
+    }
+}
+
+
+
+/* TECHNOLOGY STYLING */
+.technology {
+    margin-top:  50px;
+    padding: 1rem 5rem;
+}
+.technology-content {
+     display: grid;
+    grid-template-columns:auto auto;
+    gap: 3rem;
+    margin-top: 1rem;
+}
+
+.technology-image-content {
+    display: flex;
+    justify-content: center;
+}
+.technology-image {
+     height: 400px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.technology-image img {
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover; */
+}
+
+.technology-text-content {
+    justify-content: space-between;
+    display: flex;
+    padding: 2rem;
+    width: 70%;
+    gap: 2rem;
+    align-items: center;
+}
+
+.technology-navigation {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 80%;
+
+}
+
+.technology-navigation a {
+    border: 1.5px solid white;
+    padding: 1.5rem;
+    text-align: center;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: inherit;
+    text-decoration: none;
+    border-radius: 50%;
+}
+.technology-navigation a.active {
+    background-color: white;
+    color: black;
+}
+.technology-text {
+    line-height: 30px;
+}
+.technology-text h1 {
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    font-family: 'Montserrat';
+}
+
+/* TECHNOLOGY TABLET RESPONSIVENESS */
+@media (width <=1200px) {
+    .technology-content {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .technology-image {
+        width: 100vw;
+        height: 400px;
+        margin-bottom: 3rem;
+        margin-top: 2rem;
+    }
+
+    .technology-image img {
+        object-fit: none;
+    }
+
+    .technology-text-content {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+    }
+    .technology-navigation {
+        flex-direction: row;
+        gap: 1rem;
+        margin: auto;
+    }
+
+    .technology-text {
+        text-align: center;
+        margin-top: 2rem;
+    }
+    
+}

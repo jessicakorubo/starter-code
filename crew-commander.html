@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ... other head elements ... -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"
+    integrity="sha512-E1dSFxg+wsfJ4HKjutk/WaCzK7S2wv1POn1RRPGh8ZK+ag9l244Vqxji3r6wgz9YBf6+vhQEYJZpSjqWFPg9gg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <title>Frontend Mentor | Space tourism website</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="header.js"></script>
+
+  <style>
+    body {
+      background-image: url(assets/destination/background-destination-desktop.jpg);
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+ 
+  <div>
+    <div class="navbar">
+      <div class="icon">
+        <img src="assets/shared/logo.svg" alt="">
+      </div>
+      <div class="nav">
+        <div class="hr">
+          <hr>
+        </div>
+        <div class="nav-right">
+          <ol>
+            <li><a href="index.html"> <span>00 </span>Home</a></li>
+            <li><a href="destination-moon.html"><span>01 </span> Destination</a></li>
+            <li><a class="active" href="crew-commander.html"><span>02</span>Crew</a></li>
+            <li><a href="technology-vehicle.html"><span>03 </span> Technology</a></li>
+          </ol>
+        </div>
+        <div class="hamburger">
+          <img src="assets/icons8-hamburger-menu-48.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="mobile-nav">
+    <div class="close">
+      <img src="assets/icons8-close-button-32.png" alt="">
+    </div>
+    <ul>
+      <li> <a href="index.html">00 HOME</a></li>
+      <li> <a href="destination-moon.html">01 DESTINATION</a></li>
+      <li> <a href="crew-commander.html">02 CREW</a></li>
+      <li><a href="technology-vehicle.html">03 TECHNOLOGY</a></li>
+    </ul>
+  </div>
+
+
+
+  <div id="app">
+    <!-- The rendered template will be inserted here -->
+  </div>
+
+
+  <!-- Handlebars template in a script tag -->
+  <script id="template" type="text/x-handlebars-template">
+  <div class = "crew" >
+    <h3 class="title">02 MEET YOUR CREW</h3>
+    <div class="crew-content">
+      <div class="crew-text-content">
+        <div class="crew-text">
+            <h3>{{crewTitle}}</h3>
+            <h1>{{crewName}}</h1>
+            <p>{{crewText}}</p>
+            <div class="crew-navigation">
+              <div class="crew-nav">
+                <a class="active" href="crew-commander.html"></a>
+                <a href="crew-specialist.html"></a>
+                <a href="crew-pilot.html"></a>
+               
+                <a href="crew-engineer.html"></a>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="crew-image-content">
+        <div class="destination-nav">
+          <div id="destination-line" class="crew-image">
+            <img src="{{imageCrewSource}}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   
+  </script>
+
+  <!-- SPECIFIC FOR EACH PAGE! -->
+  <script>
+
+    // ... your JavaScript code ...
+    const pageData = {
+      imageCrewSource: 'assets/crew/image-douglas-hurley.png',
+      crewTitle: 'COMMANDER',
+      crewName: 'DOUGLAS HURLEY',
+      crewText: 'Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA astronaut. He launched into space for the third time as commander of Crew Dragon Demo-2.'
+
+
+
+      // Add any other data properties you need for your template
+    };
+
+
+    // Access the template content
+    const templateSource = document.getElementById('template').innerHTML;
+
+    // Compile the Handlebars template
+    const compiledTemplate = Handlebars.compile(templateSource);
+
+    // Render the template with dynamic data
+    const renderedPage = compiledTemplate(pageData);
+
+    // Insert the rendered HTML into the DOM
+    document.getElementById('app').innerHTML = renderedPage;
+  </script>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
