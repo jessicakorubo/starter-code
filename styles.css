@@ -141,21 +141,7 @@ ol li a.active {
     text-decoration: none;
 }
 
-/* NAVIGATION BAR MOBILE RESPONSIVENESS */
-@media (width <=800px) {
-    .nav {
-        padding-right: 2rem;
-    }
-    .nav-right {
-        display: none;
-    }
-    .hamburger{
-        display: inline-block;
-    }
-    .mobile-nav {
-        display: block;
-    }
-}
+
 
 /* END OF HEADER TAG */
 .home-grid {
@@ -549,4 +535,28 @@ space {
         margin-top: 2rem;
     }
     
+}
+/* NAVIGATION BAR MOBILE RESPONSIVENESS */
+@media (width <=800px) {
+    .text-info h1{
+        font-size: 40px;
+    }
+    .home-grid {
+        margin-top: 3rem;
+    }
+    .home_pic {
+        margin-top: 0;
+    }
+    .nav {
+        padding-right: 2rem;
+    }
+    .nav-right {
+        display: none;
+    }
+    .hamburger{
+        display: inline-block;
+    }
+    .mobile-nav {
+        display: block;
+    }
 }
